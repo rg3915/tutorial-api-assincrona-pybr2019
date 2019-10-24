@@ -1,3 +1,4 @@
+import dns
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
 from tornado.web import Application, RequestHandler
@@ -21,10 +22,11 @@ def main():
     username = config('USERNAME')
     password = config('PASSWORD')
     mlab = config('MLAB')
-    client = motor_tornado.MotorClient(f'mongodb+srv://{username}:{password}@{mlab}/test?retryWrites=true&w=majority', 27017)
+    client = motor_tornado.MotorClient(f'mongodb+srv://{username}:{password}@{mlab}/test?retryWrites=true&w=majority')
     # client =
     # f'mongodb+srv://{username}:{password}@{mlab}/test?retryWrites=true&w=majority'
-    db = client.roles_db
+    # db = client.roles_db
+    db = client['pybrdb']
 
     app = Application([
         ('/', MainHandler),
