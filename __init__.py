@@ -22,7 +22,9 @@ def main():
     username = config('USERNAME')
     password = config('PASSWORD')
     mlab = config('MLAB')
-    client = motor_tornado.MotorClient(f'mongodb+srv://{username}:{password}@{mlab}/test?retryWrites=true&w=majority')
+    # client =
+    # motor_tornado.MotorClient(f'mongodb+srv://{username}:{password}@{mlab}/test?retryWrites=true&w=majority')
+    client = config('MONGO_URL')
     # client =
     # f'mongodb+srv://{username}:{password}@{mlab}/test?retryWrites=true&w=majority'
     # db = client.roles_db
