@@ -16,8 +16,8 @@ class MainHandler(RequestHandler):
 
 
 def main():
-    port = 8000
-
+    # port = 8000
+    port = int(os.environ.get('PORT'))
     # client = motor_tornado.MotorClient('localhost', 27017)
     username = config('USERNAME')
     password = config('PASSWORD')
